@@ -10,6 +10,7 @@ import {
   TrendingUp,
   Wallet,
 } from "lucide-react";
+import type { ElementType } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   Area,
@@ -25,6 +26,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+import { SalesManagementSummary } from "@/components/dashboard/SalesManagementSummary";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { t } from "@/config/locale";
@@ -250,21 +252,26 @@ function KPICard({
   trend,
   trendValue,
   icon: Icon,
-  iconColorClass,
+  accentClass,
 }: {
   title: string;
   value: string;
   subtitle: string;
   trend?: "up" | "down";
   trendValue?: string;
-  icon: React.ElementType;
-  iconColorClass: string;
+  icon: ElementType;
+  accentClass: string;
 }) {
   return (
-    <Card className="border-burgundy-800/35 bg-burgundy-950/25 backdrop-blur-sm hover:bg-burgundy-950/35 transition-colors">
-      <CardContent className="pt-4 pb-3 px-3 sm:pt-5 sm:pb-4 sm:px-5">
+    <Card
+      className="glass-card border-white/10 hover:bg-white/[0.06] transition-colors"
+      padding="none"
+    >
+      <CardContent className="pt-5 pb-4 px-5">
         <div className="flex items-start justify-between gap-2 mb-3">
-          <Icon className={`size-4 sm:size-5 shrink-0 ${iconColorClass}`} />
+          <div className={`rounded-lg p-2.5 ${accentClass}`}>
+            <Icon className="size-4 text-white" />
+          </div>
           {trend && trendValue && (
             <div
               className={`flex items-center gap-1 text-[10px] sm:text-xs font-semibold px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full shrink min-w-0 ${
@@ -282,7 +289,7 @@ function KPICard({
             </div>
           )}
         </div>
-        <div className="text-lg sm:text-2xl lg:text-3xl font-bold tracking-tight text-white leading-tight">
+        <div className="text-2xl sm:text-3xl font-bold tracking-tight text-white leading-tight">
           {value}
         </div>
         <div className="text-[10px] sm:text-xs text-white/55 mt-1.5 uppercase tracking-wider font-medium leading-snug">
@@ -1056,6 +1063,8 @@ export function DashboardPage() {
         </p>
       </div>
 
+      <SalesManagementSummary />
+
       {/* KPI Cards */}
       <div className="grid gap-3 sm:gap-4 grid-cols-2 lg:grid-cols-4">
         <KPICard
@@ -1065,7 +1074,7 @@ export function DashboardPage() {
           trend={nnYoY >= 0 ? "up" : "down"}
           trendValue={`${(nnYoY * 100).toFixed(1)} % ${t("dashVsPy")}`}
           icon={BarChart3}
-          iconColorClass="text-burgundy-400"
+          accentClass="bg-burgundy-600/55"
         />
         <KPICard
           title={t("dashKpiTrading")}
@@ -1077,9 +1086,7 @@ export function DashboardPage() {
           trend={tradingPacingUp ? "up" : "down"}
           trendValue={`${formatPct(totals.tradingIO.pacingNN)} ${t("dashPacing")}`}
           icon={tradingPacingUp ? TrendingUp : TrendingDown}
-          iconColorClass={
-            tradingPacingUp ? "text-emerald-400" : "text-rose-400"
-          }
+          accentClass={tradingPacingUp ? "bg-emerald-800/50" : "bg-rose-900/45"}
         />
         <KPICard
           title={t("dashKpiRemuneration")}
@@ -1089,7 +1096,7 @@ export function DashboardPage() {
             formatEUR(totals.vergütung.nnCY, true),
           )}
           icon={Wallet}
-          iconColorClass="text-emerald-400"
+          accentClass="bg-emerald-900/45"
         />
         <KPICard
           title={t("dashKpiAddedValue")}
@@ -1098,7 +1105,7 @@ export function DashboardPage() {
             .replace("{events}", formatEUR(totals.addedValue.avEvents))
             .replace("{research}", formatEUR(totals.addedValue.avMaFo))}
           icon={Star}
-          iconColorClass="text-amber-400"
+          accentClass="bg-amber-900/45"
         />
       </div>
 

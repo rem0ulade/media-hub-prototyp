@@ -21,6 +21,7 @@ import { ContractsPage } from "@/pages/ContractsPage";
 import { DashboardPage } from "@/pages/DashboardPage";
 import { LoginPage } from "@/pages/LoginPage";
 import { NetworksPage } from "@/pages/NetworksPage";
+import { SalesInsightsPage } from "@/pages/SalesInsightsPage";
 import { ScorecardPage } from "@/pages/ScorecardPage";
 import { SettingsPage } from "@/pages/SettingsPage";
 
@@ -33,6 +34,7 @@ const shell = (
         <Route path="networks" element={<NetworksPage />} />
         <Route path="contracts" element={<ContractsPage />} />
         <Route path="scorecard" element={<ScorecardPage />} />
+        <Route path="sales-insights" element={<SalesInsightsPage />} />
         <Route path="backup" element={<BackupPage />} />
         <Route element={<AdminRoute />}>
           <Route path="settings" element={<SettingsPage />} />

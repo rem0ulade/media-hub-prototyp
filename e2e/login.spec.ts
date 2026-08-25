@@ -40,6 +40,7 @@ test("login with demo credentials", async ({ page }) => {
   await expect(page.getByText("IO & Programmatic")).toHaveCount(0);
   await expect(page.getByText("7,67 Mio. €").first()).toBeVisible();
   await expect(page.getByText("Partner-Fee gesamt")).toBeVisible();
+  await expect(page.getByText("Sales Insights öffnen")).toBeVisible();
   await expect(page.getByText(/Stand: 24\. August 2026/)).toBeVisible();
   await page
     .getByRole("button", { name: /Nur Demo-Zahlen|Demo figures only/ })
@@ -76,6 +77,19 @@ test("partner, contracts and scorecard use generic labels", async ({
   await expect(page.getByText("Horizon Group").first()).toBeVisible();
   await expect(page.getByText("8 Jahre").first()).toBeVisible();
   await expect(page.getByText("Share of Wallet").first()).toBeVisible();
+
+  await page.getByRole("link", { name: /Sales Insights/ }).click();
+  await expect(
+    page.getByRole("heading", { name: "Sales Insights" }),
+  ).toBeVisible();
+  await expect(page.getByText("Sales Performance")).toBeVisible();
+  await expect(page.getByText("Growth Opportunity Radar")).toBeVisible();
+  await expect(page.getByText("Pipeline & Funnel")).toBeVisible();
+  await expect(page.getByText("1,36 Mio. €").first()).toBeVisible();
+  await expect(page.getByText("Weischer")).toHaveCount(0);
+  await expect(page.getByText("UNBOUND")).toHaveCount(0);
+  await expect(page.getByText("Havas")).toHaveCount(0);
+  await expect(page.getByText("Anna Berger")).toHaveCount(0);
 });
 
 test("mobile nav has four primary items plus more", async ({ page }) => {
@@ -85,6 +99,9 @@ test("mobile nav has four primary items plus more", async ({ page }) => {
   await expect(page.getByRole("link", { name: "Partner" })).toBeVisible();
   await expect(page.getByRole("button", { name: "Mehr" })).toBeVisible();
   await page.getByRole("button", { name: "Mehr" }).click();
+  await expect(
+    page.getByRole("menuitem", { name: /Sales Insights/ }),
+  ).toBeVisible();
   await expect(
     page.getByRole("menuitem", { name: /Archiv|Archive/ }),
   ).toBeVisible();

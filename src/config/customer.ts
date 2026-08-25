@@ -6,6 +6,7 @@ import {
   LayoutDashboard,
   Network,
   Settings,
+  TrendingUp,
 } from "lucide-react";
 
 /**
@@ -22,6 +23,7 @@ export type ModuleId =
   | "networks"
   | "contracts"
   | "scorecard"
+  | "salesInsights"
   | "backup"
   | "settings";
 
@@ -102,6 +104,13 @@ export const customerConfig: CustomerConfig = {
       description: "Partner Evaluation",
       path: "/scorecard",
       icon: ClipboardCheck,
+    },
+    salesInsights: {
+      enabled: true,
+      label: "Sales Insights",
+      description: "Pipeline & Potential",
+      path: "/sales-insights",
+      icon: TrendingUp,
     },
     backup: {
       enabled: true,

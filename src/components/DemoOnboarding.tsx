@@ -3,6 +3,7 @@ import {
   LayoutDashboard,
   Network,
   Sparkles,
+  TrendingUp,
 } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -29,6 +30,11 @@ const STEPS = [
     titleKey: "onboardingTitle4",
     bodyKey: "onboardingBody4",
   },
+  {
+    icon: TrendingUp,
+    titleKey: "onboardingTitle5",
+    bodyKey: "onboardingBody5",
+  },
 ] as const;
 
 export function DemoOnboarding() {
@@ -42,7 +48,7 @@ export function DemoOnboarding() {
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogContent
         showCloseButton={false}
-        className="border-burgundy-800/40 bg-burgundy-950/95 sm:max-w-md"
+        className="glass-card border-white/12 bg-burgundy-950/70 sm:max-w-md"
       >
         <DialogHeader>
           <p className="text-[10px] uppercase tracking-wider text-burgundy-300/70 mb-2">

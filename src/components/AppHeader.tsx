@@ -36,7 +36,7 @@ export function AppHeader() {
   };
 
   return (
-    <header className="border-b border-burgundy-800/25 bg-gradient-to-r from-burgundy-950/30 via-burgundy-950/10 to-transparent px-4 sm:px-6 py-3">
+    <header className="glass-header border-b border-white/10 px-4 sm:px-6 py-3">
       <div className="flex items-center justify-between gap-3">
         {/* Left: brand on mobile, status badges */}
         <div className="flex items-center gap-2 flex-wrap min-w-0">
@@ -48,14 +48,14 @@ export function AppHeader() {
           </div>
           <Badge
             variant="outline"
-            className="border-burgundy-600/35 text-burgundy-300 text-xs uppercase tracking-wider"
+            className="border-white/12 bg-white/[0.04] text-burgundy-200 text-[10px] uppercase tracking-wider backdrop-blur-md"
           >
             {brand.fiscalYear}
           </Badge>
 
           <Badge
             variant="outline"
-            className="border-burgundy-700/25 text-burgundy-200/55 text-xs inline-flex"
+            className="border-white/10 bg-white/[0.04] text-burgundy-200/70 text-[10px] inline-flex backdrop-blur-md"
           >
             {dataSource === "excel" && lastUpload
               ? `Excel: ${lastUpload.toLocaleDateString("de-DE")} ${lastUpload.toLocaleTimeString("de-DE", { hour: "2-digit", minute: "2-digit" })}`
@@ -109,7 +109,7 @@ export function AppHeader() {
             onClick={() => fileInputRef.current?.click()}
             disabled={isLoading || !writeAllowed}
             title={writeAllowed ? t("uploadExcel") : t("readOnly")}
-            className="hidden sm:flex border-burgundy-700/40 bg-burgundy-950/30 hover:bg-burgundy-900/35 text-burgundy-200 text-xs h-8 gap-1.5"
+            className="hidden sm:flex border-white/12 bg-white/[0.06] hover:bg-white/[0.12] text-burgundy-100 text-xs h-8 gap-1.5 backdrop-blur-md"
           >
             {isLoading ? (
               <Loader2 className="size-3.5 animate-spin" />
@@ -126,7 +126,7 @@ export function AppHeader() {
             onClick={() => fileInputRef.current?.click()}
             disabled={isLoading || !writeAllowed}
             title={writeAllowed ? t("uploadExcel") : t("readOnly")}
-            className="sm:hidden border-burgundy-700/40 bg-burgundy-950/30 hover:bg-burgundy-900/35 text-burgundy-200 size-8"
+            className="sm:hidden border-white/12 bg-white/[0.06] hover:bg-white/[0.12] text-burgundy-100 size-8 backdrop-blur-md"
           >
             {isLoading ? (
               <Loader2 className="size-4 animate-spin" />
