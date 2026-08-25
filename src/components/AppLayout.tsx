@@ -13,7 +13,7 @@ export function AppLayout() {
         <LicenseBanner />
         <DemoVersionBanner />
         <AppHeader />
-        <main className="flex-1 overflow-y-auto pb-[calc(6.25rem+env(safe-area-inset-bottom,0px))] md:pb-0">
+        <main className="flex-1 overflow-y-auto pb-[calc(6.75rem+env(safe-area-inset-bottom,0px))] md:pb-0">
           <Outlet />
         </main>
       </div>

@@ -212,16 +212,16 @@ export function MobileNav() {
 
   return (
     <nav
-      className="md:hidden fixed z-50 left-3 right-3"
+      className="md:hidden fixed z-50 inset-x-0 flex justify-center px-4"
       style={{
-        bottom: "calc(0.85rem + env(safe-area-inset-bottom, 0px))",
+        bottom: "calc(1.15rem + env(safe-area-inset-bottom, 0px))",
       }}
     >
-      <div className="relative" ref={menuRef}>
+      <div className="relative w-full max-w-[22.5rem]" ref={menuRef}>
         {moreOpen ? (
           <div
             role="menu"
-            className="glass-dock absolute bottom-full left-0 right-0 mb-2 rounded-2xl p-1.5"
+            className="glass-dock absolute bottom-full left-0 right-0 mb-2.5 rounded-[1.35rem] p-1.5"
           >
             {extra.map(item => (
               <NavLink
@@ -259,7 +259,7 @@ export function MobileNav() {
           </div>
         ) : null}
 
-        <div className="glass-dock flex items-center justify-around rounded-2xl px-1 py-1.5">
+        <div className="glass-dock flex items-center justify-around rounded-full px-1.5 py-1">
           {primary.map(item => {
             const isActive = isItemActive(location.pathname, item.to);
             const label = t(item.labelKey);
