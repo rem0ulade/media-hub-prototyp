@@ -1,0 +1,53 @@
+/* Weischer brand theme — warm cinema burgundy with gold accents */
+[data-brand="weischer"] {
+  --color-burgundy-50: #fdf2f4;
+  --color-burgundy-100: #fce7ef;
+  --color-burgundy-200: #fbcfe0;
+  --color-burgundy-300: #f9a8c4;
+  --color-burgundy-400: #f472a8;
+  --color-burgundy-500: #df4b70;
+  --color-burgundy-600: #c42d5a;
+  --color-burgundy-700: #a61f4a;
+  --color-burgundy-800: #8b1a3f;
+  --color-burgundy-900: #6d1532;
+  --color-burgundy-950: #3d0a1c;
+
+  --primary: #df4b70;
+  --primary-foreground: #fdf2f6;
+  --sidebar-primary: #df4b70;
+  --sidebar-primary-foreground: #fdf2f6;
+  --ring: #df4b70;
+  --sidebar-ring: #df4b70;
+
+  --chart-1: #df4b70;
+  --chart-2: #8b1a3f;
+  --chart-3: #f9a8c4;
+  --chart-4: #e8b84a;
+  --chart-5: #34d399;
+
+  --background: #080406;
+  --foreground: #faf0f3;
+  --card: #10080c;
+  --card-foreground: #faf0f3;
+  --popover: #10080c;
+  --popover-foreground: #faf0f3;
+  --secondary: #180c12;
+  --secondary-foreground: #e8c4d0;
+  --muted: #180c12;
+  --muted-foreground: #b07a8e;
+  --accent: #1f1117;
+  --accent-foreground: #faf0f3;
+  --sidebar: #060304;
+  --sidebar-foreground: #faf0f3;
+  --sidebar-accent: #180c12;
+  --sidebar-accent-foreground: #faf0f3;
+}
+
+[data-brand="weischer"] .demo-banner {
+  --demo-banner-from: rgb(61 10 28 / 0.95);
+  --demo-banner-via: rgb(109 21 50 / 0.88);
+  --demo-banner-border: rgb(223 75 112 / 0.4);
+  --demo-banner-accent: rgb(232 184 74 / 0.2);
+  --demo-banner-text: #fce7ef;
+  --demo-banner-muted: rgb(249 168 196 / 0.78);
+}

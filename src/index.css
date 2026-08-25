@@ -1,0 +1,222 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Brand color scale — semantic accent tokens (blue on MediaHub base) */
+  --color-burgundy-50:  #f0f7ff;
+  --color-burgundy-100: #e0effe;
+  --color-burgundy-200: #b9dcfe;
+  --color-burgundy-300: #7cc0fd;
+  --color-burgundy-400: #38a3f8;
+  --color-burgundy-500: #0d8bf2;
+  --color-burgundy-600: #026fd3;
+  --color-burgundy-700: #0359ab;
+  --color-burgundy-800: #074b8d;
+  --color-burgundy-900: #0c3f75;
+  --color-burgundy-950: #082849;
+}
+
+:root {
+  --sidebar-width: 16rem;
+  --sidebar-width-icon: 3rem;
+  --radius: 0.625rem;
+
+  --primary: #0d8bf2;
+  --primary-foreground: #f0f7ff;
+  --sidebar-primary: #0d8bf2;
+  --sidebar-primary-foreground: #f0f7ff;
+
+  --success: #34d399;
+  --success-foreground: #064e3b;
+  --warning: #fbbf24;
+  --warning-foreground: #451a03;
+  --info: #22d3ee;
+  --info-foreground: #083344;
+
+  --chart-1: #0d8bf2;
+  --chart-2: #026fd3;
+  --chart-3: #22d3ee;
+  --chart-4: #fbbf24;
+  --chart-5: #34d399;
+
+  --background: #080e1a;
+  --foreground: #f0f4ff;
+  --card: #0d1526;
+  --card-foreground: #f0f4ff;
+  --popover: #0d1526;
+  --popover-foreground: #f0f4ff;
+  --secondary: #131f3a;
+  --secondary-foreground: #c7d9f8;
+  --muted: #131f3a;
+  --muted-foreground: #7b97c8;
+  --accent: #131f3a;
+  --accent-foreground: #f0f4ff;
+  --destructive: #ef4444;
+  --destructive-foreground: #fef2f2;
+  --border: rgba(255, 255, 255, 0.07);
+  --input: rgba(255, 255, 255, 0.09);
+  --ring: #0d8bf2;
+  --sidebar: #060c18;
+  --sidebar-foreground: #f0f4ff;
+  --sidebar-accent: #131f3a;
+  --sidebar-accent-foreground: #f0f4ff;
+  --sidebar-border: rgba(255, 255, 255, 0.07);
+  --sidebar-ring: #0d8bf2;
+}
+
+.dark {
+  --primary: #0d8bf2;
+  --primary-foreground: #f0f7ff;
+  --sidebar-primary: #0d8bf2;
+  --sidebar-primary-foreground: #f0f7ff;
+  --success: #34d399;
+  --success-foreground: #064e3b;
+  --warning: #fbbf24;
+  --warning-foreground: #451a03;
+  --info: #22d3ee;
+  --info-foreground: #083344;
+  --chart-1: #0d8bf2;
+  --chart-2: #026fd3;
+  --chart-3: #22d3ee;
+  --chart-4: #fbbf24;
+  --chart-5: #34d399;
+  --background: #080e1a;
+  --foreground: #f0f4ff;
+  --card: #0d1526;
+  --card-foreground: #f0f4ff;
+  --popover: #0d1526;
+  --popover-foreground: #f0f4ff;
+  --secondary: #131f3a;
+  --secondary-foreground: #c7d9f8;
+  --muted: #131f3a;
+  --muted-foreground: #7b97c8;
+  --accent: #131f3a;
+  --accent-foreground: #f0f4ff;
+  --destructive: #ef4444;
+  --destructive-foreground: #fef2f2;
+  --border: rgba(255, 255, 255, 0.07);
+  --input: rgba(255, 255, 255, 0.09);
+  --ring: #0d8bf2;
+  --sidebar: #060c18;
+  --sidebar-foreground: #f0f4ff;
+  --sidebar-accent: #131f3a;
+  --sidebar-accent-foreground: #f0f4ff;
+  --sidebar-border: rgba(255, 255, 255, 0.07);
+  --sidebar-ring: #0d8bf2;
+}
+
+@layer base {
+  :root {
+    --demo-banner-from: rgb(8 40 73 / 0.92);
+    --demo-banner-via: rgb(12 63 117 / 0.82);
+    --demo-banner-border: rgb(13 139 242 / 0.35);
+    --demo-banner-accent: rgb(13 139 242 / 0.22);
+    --demo-banner-text: #e0effe;
+    --demo-banner-muted: rgb(124 192 253 / 0.75);
+  }
+
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      max-width: 1280px;
+    }
+  }
+}
+
+@media print {
+  aside,
+  header button,
+  nav.fixed {
+    display: none !important;
+  }
+  main {
+    overflow: visible !important;
+  }
+  body {
+    background: white !important;
+    color: black !important;
+  }
+}

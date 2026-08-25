@@ -1,0 +1,114 @@
+/**
+ * Generic hub logo — replace this SVG with a customer logo if needed.
+ * Uses currentColor so it follows the active brand accent palette.
+ */
+export function HubLogo({ className }: { className?: string }) {
+  return (
+    <svg
+      className={`text-burgundy-400 ${className ?? ""}`}
+      viewBox="0 0 40 40"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <title>Hub Logo</title>
+      <circle
+        cx="20"
+        cy="20"
+        r="17"
+        stroke="currentColor"
+        strokeWidth="2"
+        opacity="0.35"
+      />
+      <circle
+        cx="20"
+        cy="20"
+        r="11"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        opacity="0.55"
+      />
+      <circle cx="20" cy="20" r="3.5" fill="currentColor" />
+      <line
+        x1="20"
+        y1="3"
+        x2="20"
+        y2="9"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        opacity="0.7"
+      />
+      <line
+        x1="20"
+        y1="31"
+        x2="20"
+        y2="37"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        opacity="0.7"
+      />
+      <line
+        x1="3"
+        y1="20"
+        x2="9"
+        y2="20"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        opacity="0.7"
+      />
+      <line
+        x1="31"
+        y1="20"
+        x2="37"
+        y2="20"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        opacity="0.7"
+      />
+      <line
+        x1="7.5"
+        y1="7.5"
+        x2="11.7"
+        y2="11.7"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        opacity="0.45"
+      />
+      <line
+        x1="28.3"
+        y1="28.3"
+        x2="32.5"
+        y2="32.5"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        opacity="0.45"
+      />
+      <line
+        x1="32.5"
+        y1="7.5"
+        x2="28.3"
+        y2="11.7"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        opacity="0.45"
+      />
+      <line
+        x1="11.7"
+        y1="28.3"
+        x2="7.5"
+        y2="32.5"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        opacity="0.45"
+      />
+    </svg>
+  );
+}

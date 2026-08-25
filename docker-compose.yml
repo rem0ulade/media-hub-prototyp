@@ -1,0 +1,27 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    ports:
+      - "3001:3001"
+    environment:
+      PORT: 3001
+      HOST: 0.0.0.0
+      NODE_ENV: production
+      DATA_DIR: /app/data
+      LICENSE_EXPIRES: ${LICENSE_EXPIRES:-2027-12-31T23:59:59.000Z}
+    volumes:
+      - hub_data:/app/data
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.web
+    ports:
+      - "8080:80"
+    depends_on:
+      - api
+
+volumes:
+  hub_data:
