@@ -6,6 +6,14 @@ function storageKey(brandId: BrandId) {
   return `hub_demo_session_${brandId}`;
 }
 
+function toAuthUser(row: {
+  id: string;
+  username: string;
+  role: AuthUser["role"];
+}): AuthUser {
+  return { id: row.id, username: row.username, role: row.role };
+}
+
 export function demoLogin(
   _brandId: BrandId,
   username: string,
@@ -15,7 +23,14 @@ export function demoLogin(
     u => u.username.toLowerCase() === username.trim().toLowerCase(),
   );
   if (!row || row.password !== password) return null;
-  return { id: row.id, username: row.username, role: row.role };
+  return toAuthUser(row);
+}
+
+/** One-click public demo: primary admin, no password prompt. */
+export function demoLoginPrimary(): AuthUser | null {
+  const row = basePreset.demoAccounts[0];
+  if (!row) return null;
+  return toAuthUser(row);
 }
 
 export function saveDemoSession(brandId: BrandId, user: AuthUser) {

@@ -11,6 +11,7 @@ import { ApiError, api } from "@/lib/api";
 import {
   clearDemoSession,
   demoLogin,
+  demoLoginPrimary,
   loadDemoSession,
   saveDemoSession,
 } from "@/lib/demo-auth";
@@ -30,6 +31,7 @@ interface AuthState {
   apiOnline: boolean;
   usingDemoAuth: boolean;
   login: (username: string, password: string) => Promise<void>;
+  loginDemo: () => Promise<void>;
   logout: () => Promise<void>;
   canWrite: boolean;
   isAdmin: boolean;
@@ -101,15 +103,30 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     refresh();
   }, [refresh]);
 
+  const applyDemoUser = useCallback(
+    (demo: AuthUser) => {
+      saveDemoSession(brandId, demo);
+      setUser(demo);
+      setUsingDemoAuth(true);
+      setApiOnline(false);
+    },
+    [brandId],
+  );
+
+  const loginDemo = useCallback(async () => {
+    const demo = demoLoginPrimary();
+    if (!demo) throw new ApiError("Ungültige Zugangsdaten", 401);
+    applyDemoUser(demo);
+  }, [applyDemoUser]);
+
   const login = useCallback(
     async (username: string, password: string) => {
       if (isStaticDemo) {
-        const demo = demoLogin(brandId, username, password);
+        const demo = password
+          ? demoLogin(brandId, username, password)
+          : demoLoginPrimary();
         if (!demo) throw new ApiError("Ungültige Zugangsdaten", 401);
-        saveDemoSession(brandId, demo);
-        setUser(demo);
-        setUsingDemoAuth(true);
-        setApiOnline(false);
+        applyDemoUser(demo);
         return;
       }
 
@@ -131,13 +148,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             ? err
             : new ApiError("Ungültige Zugangsdaten", 401);
         }
-        saveDemoSession(brandId, demo);
-        setUser(demo);
-        setUsingDemoAuth(true);
-        setApiOnline(false);
+        applyDemoUser(demo);
       }
     },
-    [brandId],
+    [applyDemoUser, brandId],
   );
 
   const logout = useCallback(async () => {
@@ -164,6 +178,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         apiOnline,
         usingDemoAuth,
         login,
+        loginDemo,
         logout,
         canWrite,
         isAdmin,
