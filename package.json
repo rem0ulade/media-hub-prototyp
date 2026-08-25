@@ -8,6 +8,7 @@
     "dev:web": "vite",
     "dev:api": "tsx watch server/index.ts",
     "build": "tsc -b && VITE_STATIC_DEMO=true vite build",
+    "build:vantura": "VITE_STATIC_DEMO=true VITE_HASH_ROUTER=true vite build --base /ops-hub-demo/",
     "build:api": "tsc -p server/tsconfig.json",
     "start:api": "tsx server/index.ts",
     "preview": "vite preview",

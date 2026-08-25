@@ -93,14 +93,10 @@ export function parseExcelBuffer(
       results.push({
         network,
         io: {
-          mb3PY: safeNum(
-            col(row, ["Brutto PY", "MB3 PY", "mb3PY"], mapping),
-          ),
+          mb3PY: safeNum(col(row, ["Brutto PY", "MB3 PY", "mb3PY"], mapping)),
           nnPY: safeNum(col(row, ["Netto PY", "NN PY", "nnPY"], mapping)),
           pfPY: safeNum(col(row, ["Marge PY", "PF PY", "pfPY"], mapping)),
-          mb3CY: safeNum(
-            col(row, ["Brutto CY", "MB3 CY", "mb3CY"], mapping),
-          ),
+          mb3CY: safeNum(col(row, ["Brutto CY", "MB3 CY", "mb3CY"], mapping)),
           nnCY: safeNum(col(row, ["Netto CY", "NN CY", "nnCY"], mapping)),
           pfCY: safeNum(col(row, ["Marge CY", "PF CY", "pfCY"], mapping)),
         },
@@ -205,9 +201,7 @@ export function parseExcelBuffer(
       if (!network || network.toLowerCase() === "gesamt") continue;
       results.push({
         network,
-        nnCY: safeNum(
-          col(row, ["Netto CY", "NN CY", "nnCY"], mapping),
-        ),
+        nnCY: safeNum(col(row, ["Netto CY", "NN CY", "nnCY"], mapping)),
         vergütung: safeNum(
           col(row, ["Fee", "Partner-Fee", "Vergütung", "vergütung"], mapping),
         ),
@@ -283,9 +277,7 @@ export function parseExcelBuffer(
     errors.push("Keine Netzwerk-Zeilen im Hauptblatt gefunden.");
   }
   if (!vergSheet)
-    warnings.push(
-      "Sheet „Fee“ nicht gefunden — Demo-Fee bleibt aktiv.",
-    );
+    warnings.push("Sheet „Fee“ nicht gefunden — Demo-Fee bleibt aktiv.");
   if (!avSheet)
     warnings.push(
       "Sheet „Zusatzleistungen“ nicht gefunden — Demo-Zusatzleistungen bleiben aktiv.",

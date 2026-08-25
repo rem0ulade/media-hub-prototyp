@@ -90,12 +90,10 @@ function trading(opts: {
     tranchen: {
       mb3PYTr: opts.mb3PYTr,
       nnPYTr: opts.nnPYTr,
-      pfPYTr:
-        opts.mb3PYTr && opts.nnPYTr ? opts.nnPYTr / opts.mb3PYTr : null,
+      pfPYTr: opts.mb3PYTr && opts.nnPYTr ? opts.nnPYTr / opts.mb3PYTr : null,
       mb3TrCY: opts.mb3TrCY,
       nnTrCY: opts.nnTrCY,
-      pfTrCY:
-        opts.mb3TrCY && opts.nnTrCY ? opts.nnTrCY / opts.mb3TrCY : null,
+      pfTrCY: opts.mb3TrCY && opts.nnTrCY ? opts.nnTrCY / opts.mb3TrCY : null,
     },
     planIst: { planMB3, planNN, istMB3, istNN },
     pacing: {
@@ -226,11 +224,36 @@ export const tradingPCData: TradingData[] = [
 ];
 
 export const vergütungData: VergütungData[] = [
-  { network: "Horizon Group", nnCY: 400_000, vergütung: 50_000, vergütungsart: "Fixfee" },
-  { network: "Apex Media", nnCY: 250_000, vergütung: 0, vergütungsart: "Umsatzbeteiligung 5 %" },
-  { network: "Spectrum Hub", nnCY: 180_000, vergütung: 25_000, vergütungsart: "Fixfee" },
-  { network: "Nexus Partners", nnCY: 150_000, vergütung: 0, vergütungsart: "Umsatzbeteiligung 3 %" },
-  { network: "Compass Group", nnCY: 80_000, vergütung: 12_000, vergütungsart: "Fixfee" },
+  {
+    network: "Horizon Group",
+    nnCY: 400_000,
+    vergütung: 50_000,
+    vergütungsart: "Fixfee",
+  },
+  {
+    network: "Apex Media",
+    nnCY: 250_000,
+    vergütung: 0,
+    vergütungsart: "Umsatzbeteiligung 5 %",
+  },
+  {
+    network: "Spectrum Hub",
+    nnCY: 180_000,
+    vergütung: 25_000,
+    vergütungsart: "Fixfee",
+  },
+  {
+    network: "Nexus Partners",
+    nnCY: 150_000,
+    vergütung: 0,
+    vergütungsart: "Umsatzbeteiligung 3 %",
+  },
+  {
+    network: "Compass Group",
+    nnCY: 80_000,
+    vergütung: 12_000,
+    vergütungsart: "Fixfee",
+  },
   { network: "Summit Network", nnCY: 0, vergütung: 0, vergütungsart: "–" },
   { network: "Outdoor Connect", nnCY: 0, vergütung: 0, vergütungsart: "–" },
   { network: "Venture Media", nnCY: 0, vergütung: 0, vergütungsart: "–" },
@@ -241,25 +264,118 @@ export const vergütungData: VergütungData[] = [
 ];
 
 export const addedValueData: AddedValueData[] = [
-  { network: "Horizon Group", avEvents: 15_000, avProduktproben: 5_000, avMaFo: 10_000, avSonstiges: 0, avSumme: 30_000 },
-  { network: "Apex Media", avEvents: 12_000, avProduktproben: 3_000, avMaFo: 8_000, avSonstiges: 2_000, avSumme: 25_000 },
-  { network: "Spectrum Hub", avEvents: 8_000, avProduktproben: 4_000, avMaFo: 6_000, avSonstiges: 0, avSumme: 18_000 },
-  { network: "Nexus Partners", avEvents: 10_000, avProduktproben: 2_000, avMaFo: 12_000, avSonstiges: 0, avSumme: 24_000 },
-  { network: "Compass Group", avEvents: 5_000, avProduktproben: 1_000, avMaFo: 4_000, avSonstiges: 0, avSumme: 10_000 },
-  { network: "Summit Network", avEvents: 6_000, avProduktproben: 2_000, avMaFo: 3_000, avSonstiges: 4_000, avSumme: 15_000 },
-  { network: "Outdoor Connect", avEvents: 0, avProduktproben: 0, avMaFo: 0, avSonstiges: 0, avSumme: 0 },
-  { network: "Venture Media", avEvents: 0, avProduktproben: 0, avMaFo: 0, avSonstiges: 0, avSumme: 0 },
-  { network: "Meridian Connect", avEvents: 0, avProduktproben: 0, avMaFo: 0, avSonstiges: 0, avSumme: 0 },
-  { network: "Regional Media", avEvents: 0, avProduktproben: 0, avMaFo: 0, avSonstiges: 0, avSumme: 0 },
-  { network: "Public Sector", avEvents: 0, avProduktproben: 0, avMaFo: 0, avSonstiges: 0, avSumme: 0 },
-  { network: "Global Alliance", avEvents: 0, avProduktproben: 0, avMaFo: 0, avSonstiges: 0, avSumme: 0 },
+  {
+    network: "Horizon Group",
+    avEvents: 15_000,
+    avProduktproben: 5_000,
+    avMaFo: 10_000,
+    avSonstiges: 0,
+    avSumme: 30_000,
+  },
+  {
+    network: "Apex Media",
+    avEvents: 12_000,
+    avProduktproben: 3_000,
+    avMaFo: 8_000,
+    avSonstiges: 2_000,
+    avSumme: 25_000,
+  },
+  {
+    network: "Spectrum Hub",
+    avEvents: 8_000,
+    avProduktproben: 4_000,
+    avMaFo: 6_000,
+    avSonstiges: 0,
+    avSumme: 18_000,
+  },
+  {
+    network: "Nexus Partners",
+    avEvents: 10_000,
+    avProduktproben: 2_000,
+    avMaFo: 12_000,
+    avSonstiges: 0,
+    avSumme: 24_000,
+  },
+  {
+    network: "Compass Group",
+    avEvents: 5_000,
+    avProduktproben: 1_000,
+    avMaFo: 4_000,
+    avSonstiges: 0,
+    avSumme: 10_000,
+  },
+  {
+    network: "Summit Network",
+    avEvents: 6_000,
+    avProduktproben: 2_000,
+    avMaFo: 3_000,
+    avSonstiges: 4_000,
+    avSumme: 15_000,
+  },
+  {
+    network: "Outdoor Connect",
+    avEvents: 0,
+    avProduktproben: 0,
+    avMaFo: 0,
+    avSonstiges: 0,
+    avSumme: 0,
+  },
+  {
+    network: "Venture Media",
+    avEvents: 0,
+    avProduktproben: 0,
+    avMaFo: 0,
+    avSonstiges: 0,
+    avSumme: 0,
+  },
+  {
+    network: "Meridian Connect",
+    avEvents: 0,
+    avProduktproben: 0,
+    avMaFo: 0,
+    avSonstiges: 0,
+    avSumme: 0,
+  },
+  {
+    network: "Regional Media",
+    avEvents: 0,
+    avProduktproben: 0,
+    avMaFo: 0,
+    avSonstiges: 0,
+    avSumme: 0,
+  },
+  {
+    network: "Public Sector",
+    avEvents: 0,
+    avProduktproben: 0,
+    avMaFo: 0,
+    avSonstiges: 0,
+    avSumme: 0,
+  },
+  {
+    network: "Global Alliance",
+    avEvents: 0,
+    avProduktproben: 0,
+    avMaFo: 0,
+    avSonstiges: 0,
+    avSumme: 0,
+  },
 ];
 
 export const networkNotes: NetworkNote[] = [
-  { network: "Horizon Group", note: "Größter Partner im Portfolio — Pacing 90 %, leicht unter Jahresziel." },
-  { network: "Apex Media", note: "Stabiles Wachstum YTD — Review für Q3 geplant." },
+  {
+    network: "Horizon Group",
+    note: "Größter Partner im Portfolio — Pacing 90 %, leicht unter Jahresziel.",
+  },
+  {
+    network: "Apex Media",
+    note: "Stabiles Wachstum YTD — Review für Q3 geplant.",
+  },
   { network: "Spectrum Hub", note: "Solides Pacing bei 85 % — über Vorjahr." },
-  { network: "Nexus Partners", note: "Pacing 70 % — Nachsteuerung mit Partner für H2 vereinbart." },
+  {
+    network: "Nexus Partners",
+    note: "Pacing 70 % — Nachsteuerung mit Partner für H2 vereinbart.",
+  },
 ];
 
 const classicSums = networkClassicData.reduce(

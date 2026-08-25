@@ -186,17 +186,37 @@ export const contracts: Contract[] = [
   },
 ];
 
-export const statusConfig: Record<ContractStatus, { label: string; color: string; bg: string }> = {
-  aktiv:       { label: "Aktiv",            color: "text-emerald-400", bg: "bg-emerald-500/15 border-emerald-500/25" },
-  verhandlung: { label: "In Verhandlung",   color: "text-amber-400",   bg: "bg-amber-500/15 border-amber-500/25" },
-  abgelaufen:  { label: "Abgelaufen",       color: "text-rose-400",    bg: "bg-rose-500/15 border-rose-500/25" },
-  entwurf:     { label: "Entwurf",          color: "text-burgundy-300", bg: "bg-burgundy-500/15 border-burgundy-500/25" },
+export const statusConfig: Record<
+  ContractStatus,
+  { label: string; color: string; bg: string }
+> = {
+  aktiv: {
+    label: "Aktiv",
+    color: "text-emerald-400",
+    bg: "bg-emerald-500/15 border-emerald-500/25",
+  },
+  verhandlung: {
+    label: "In Verhandlung",
+    color: "text-amber-400",
+    bg: "bg-amber-500/15 border-amber-500/25",
+  },
+  abgelaufen: {
+    label: "Abgelaufen",
+    color: "text-rose-400",
+    bg: "bg-rose-500/15 border-rose-500/25",
+  },
+  entwurf: {
+    label: "Entwurf",
+    color: "text-burgundy-300",
+    bg: "bg-burgundy-500/15 border-burgundy-500/25",
+  },
 };
 
-export const typeConfig: Record<ContractType, { label: string; icon: string }> = {
-  Rahmenvertrag:      { label: "Rahmenvertrag",      icon: "RV" },
-  Tradevertrag:       { label: "Tradevertrag",       icon: "TV" },
-  Buchungsvertrag:    { label: "Buchungsvertrag",    icon: "BV" },
-  "Fee-Vertrag":      { label: "Fee-Vertrag",        icon: "FV" },
-  Sondervereinbarung: { label: "Sondervereinbarung", icon: "SA" },
-};
+export const typeConfig: Record<ContractType, { label: string; icon: string }> =
+  {
+    Rahmenvertrag: { label: "Rahmenvertrag", icon: "RV" },
+    Tradevertrag: { label: "Tradevertrag", icon: "TV" },
+    Buchungsvertrag: { label: "Buchungsvertrag", icon: "BV" },
+    "Fee-Vertrag": { label: "Fee-Vertrag", icon: "FV" },
+    Sondervereinbarung: { label: "Sondervereinbarung", icon: "SA" },
+  };

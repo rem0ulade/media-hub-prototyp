@@ -1,4 +1,10 @@
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter,
+  HashRouter,
+  Navigate,
+  Route,
+  Routes,
+} from "react-router-dom";
 import { AppLayout } from "@/components/AppLayout";
 import { AdminRoute, ProtectedRoute } from "@/components/ProtectedRoute";
 import { Toaster } from "@/components/ui/sonner";
@@ -36,10 +42,16 @@ const shell = (
   </>
 );
 
+const useHashRouter = import.meta.env.VITE_HASH_ROUTER === "true";
+const Router = useHashRouter ? HashRouter : BrowserRouter;
+const routerBasename = useHashRouter
+  ? undefined
+  : import.meta.env.BASE_URL.replace(/\/$/, "");
+
 export default function App() {
   return (
     <ThemeProvider defaultTheme="dark" switchable>
-      <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, "")}>
+      <Router basename={routerBasename}>
         <BrandPresetProvider>
           <AuthProvider>
             <LicenseProvider>
@@ -62,7 +74,7 @@ export default function App() {
             </LicenseProvider>
           </AuthProvider>
         </BrandPresetProvider>
-      </BrowserRouter>
+      </Router>
     </ThemeProvider>
   );
 }

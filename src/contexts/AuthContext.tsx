@@ -50,6 +50,8 @@ function shouldUseDemoFallback(err: unknown): boolean {
     err.status === 0 ||
     err.status === 404 ||
     err.status === 405 ||
+    err.status === 500 ||
+    err.status === 502 ||
     err.status === 503
   );
 }

@@ -7,7 +7,7 @@ function storageKey(brandId: BrandId) {
 }
 
 export function demoLogin(
-  brandId: BrandId,
+  _brandId: BrandId,
   username: string,
   password: string,
 ): AuthUser | null {
